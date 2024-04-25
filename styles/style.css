@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Russo+One&display=swap');
+
+:root {
+	--lato-font: 'Lato', sans-serif;
+	--russo-one-font: 'Russo One', sans-serif;
+
+	--w-container: 1440px;
+
+	--backgroung-color: #b01455;
+	--white-color: #ffffff;
+	--light-color: #fffafd;
+	--accent-color: #f658ba;
+	--dark-color: #000000;
+	--dark-rgb: 0, 0, 0;
+
+	--default-traanstion: 1s;
+}
+
+html,
+body {
+	height: 100vh;
+}
+
+body {
+	font-family: var(--lato-font);
+	background-color: var(--backgroung-color);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+a {
+	text-decoration: none;
+}
+
+.container {
+	box-sizing: border-box;
+	max-width: var(--w-container);
+	background-color: var(--light-color);
+	margin: 0 auto;
+	width: 100%;
+	padding-left: clamp(15px, 3vw, 75px);
+	padding-right: clamp(15px, 3vw, 75px);
+	border-radius: 16px;
+	border: 6px solid var(--white-color);
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+.header__logo {
+	display: flex;
+	align-items: center;
+	font-size: 28px;
+	text-transform: uppercase;
+}
+
+.header__logo .accent {
+	color: var(--accent-color);
+}
+
+.header__logo .logo {
+	content: '';
+	display: block;
+	width: 30px;
+	height: 37px;
+	background-image: url(../images/logo.svg);
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.header__logo .dark {
+	color: rgba(var(--dark-rgb), 0.65);
+}
+
+.header__nav {
+	display: flex;
+	gap: 50px;
+}
+
+.header__link {
+	font-size: 18px;
+	color: rgba(var(--dark-rgb), 0.75);
+	letter-spacing: 3.15px;
+	text-transform: lowercase;
+}
+
+.header__link:hover {
+	color: var(--accent-color);
+	transition: var(--default-traanstion);
+}
+
+.main {
+	position: relative;
+}
+
+.main__img {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+
+.main__img._toy {
+	left: 100px;
+	bottom: 0;
+	height: clamp(720px, 45vw, 920px);
+}
+
+.main__title {
+	color: rgba(var(--dark-rgb), 0.75);
+	font-size: 30px;
+	font-weight: 500;
+	letter-spacing: 4.2px;
+	text-transform: uppercase;
+	max-height: 270px;
+	position: absolute;
+	top: 30px;
+	right: 0;
+	margin: 0;
+	writing-mode: vertical-rl;
+}
+
+.grid {
+	display: grid;
+	align-items: center;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 250px);
+	grid-template-areas: 'first .' 'third second';
+	gap: clamp(20px, 3vw, 80px) 0;
+	padding-top: clamp(50px, 10vw, 180px);
+	padding-bottom: clamp(30px, 5vw, 120px);
+}
+
+.grid__item:nth-child(1) {
+	grid-area: first;
+}
+
+.grid__item:nth-child(2) {
+	grid-area: second;
+	justify-self: end;
+}
+
+.grid__item:nth-child(3) {
+	grid-area: third;
+	align-self: end;
+	padding-bottom: 28px;
+}
+
+.grid__title {
+	color: var(--accent-color);
+	font-family: var(--russo-one-font);
+	font-size: 80px;
+	font-weight: 400;
+	letter-spacing: 5.6px;
+	text-transform: lowercase;
+	margin: 0;
+}
+
+.grid__description {
+	color: rgba(var(--dark-rgb), 0.75);
+	font-size: 14px;
+	line-height: 170%;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	margin-top: 24px;
+}
+
+.grid__item:nth-child(1) .grid__description {
+	max-width: 338px;
+}
+
+.grid__item:nth-child(2) .grid__description {
+	max-width: 316px;
+}
+
+.grid__link {
+	display: flex;
+	gap: 34px;
+	align-items: center;
+	justify-content: center;
+	color: var(--dark-color);
+	max-width: 318px;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 150%;
+	text-transform: uppercase;
+	letter-spacing: -0.3px;
+	background-color: var(--white-color);
+	padding: 30px 0;
+	border-radius: 40px;
+	box-shadow: 0px 0px 40px 0px rgba(var(--dark-rgb), 0.15);
+}
+
+.grid__link::after {
+	padding: 0;
+	content: '';
+	display: block;
+	width: 22px;
+	height: 22px;
+	background-image: url(../images/arrow.svg);
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+@media (max-height: 1100px) {
+	.grid {
+		gap: clamp(20px, 5vh, 50px) 0;
+		padding-top: clamp(50px, 7vh, 80px);
+		padding-bottom: clamp(30px, 4vh, 50px);
+	}
+
+	.main__img._toy {
+		left: 100px;
+		bottom: 0;
+		height: clamp(660px, 70vh, 760px);
+	}
+}
